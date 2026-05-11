@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="popup-container">
+        <header>
+            <div class="logo-mini">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h1>URL ANALYZER</h1>
+        </header>
+
+        <main>
+            <div id="loadingState" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing Link...</p>
+            </div>
+
+            <div id="resultsArea">
+                <div class="speedometer-wrapper">
+                    <svg class="speedometer-svg" viewBox="0 0 400 240">
+                        <path class="speedo-bg-track" d="M50 200 A150 150 0 0 1 350 200" fill="none" stroke-width="20" stroke-linecap="round"/>
+                        <path id="scoreTrack" class="speedo-fill" d="M50 200 A150 150 0 0 1 350 200" fill="none" stroke-width="20" stroke-linecap="round" stroke-dasharray="0 471.2" stroke="rgba(255,255,255,0.1)"/>
+                        
+                        <g id="speedoNeedleGroup" class="speedo-needle-group" style="transform: rotate(-90deg);">
+                            <line x1="200" y1="200" x2="200" y2="70" class="speedo-needle-line" />
+                            <circle cx="200" cy="200" r="8" fill="#fff" />
+                        </g>
+                    </svg>
+                    
+                    <div class="score-display">
+                        <div class="score-value-group">
+                            <span id="scoreText" class="digital-value">0</span>
+                            <span class="digital-unit">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-row">
+                    <span id="riskBadge" class="badge">Analyzing...</span>
+                </div>
+
+                <div class="url-info">
+                    <p id="analyzedUrl">Identifying...</p>
+                </div>
+
+                <div class="analysis-details">
+                    <div class="reason-section">
+                        <p class="section-title positive">Positive signs</p>
+                        <ul id="positiveList"></ul>
+                    </div>
+                    <div class="reason-section">
+                        <p class="section-title negative">Risk Factors</p>
+                        <ul id="negativeList"></ul>
+                    </div>
+                </div>
+            </div>
+
+                <div class="feedback-section">
+                    <p>Accurate?</p>
+                    <div class="feedback-buttons">
+                        <button id="feedbackCorrect" class="feedback-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></button>
+                        <button id="feedbackIncorrect" class="feedback-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3"></path></svg></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorArea" class="hidden">
+                <p id="errorMessage">Service Offline</p>
+                <button id="retryBtn">Retry</button>
+            </div>
+        </main>
+
+        <footer>
+            <a href="http://127.0.0.1:8000" target="_blank" class="full-view-btn">View Full Report</a>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
+

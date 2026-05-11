@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI URL Trust Analyzer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Feather Icons for Beautiful SVGs -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    
+    <!-- Background Elements -->
+    <div class="cyber-particles"></div>
+    <div class="cyber-scanline"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    
+    <div class="container">
+        <!-- Input Page -->
+        <div id="inputPage" class="page-container">
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <i data-feather="shield"></i>
+            </div>
+            <h1>URL Trust Analyzer</h1>
+            <p>Paste any link below to instantly check for risks and discover its trust score using our AI models.</p>
+        </header>
+
+        <!-- Input Area -->
+        <div class="search-box">
+            <div class="input-wrapper-group">
+                <div class="input-wrapper">
+                    <i data-feather="link" class="input-icon"></i>
+                    <input type="url" id="urlInput" placeholder="https://example.com" autocomplete="off" required>
+                </div>
+                <p id="urlError" class="error-text hidden">enter url !!</p>
+            </div>
+            <button id="analyzeBtn" class="premium-button">
+                <span>Analyze</span>
+                <i data-feather="arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="hidden">
+            <div class="spinner"></div>
+            <p>Analyzing link...</p>
+        </div>
+        </div> <!-- End Input Page -->
+
+        <!-- Results Page -->
+        <div id="resultsPage" class="page-container hidden">
+            <!-- Back Button Header -->
+            <div class="results-header">
+                <button id="backBtn" class="back-button">
+                    <i data-feather="arrow-left"></i>
+                    <span>Test Another URL</span>
+                </button>
+            </div>
+
+            <div id="resultsArea" class="results-container">
+            <!-- Score Card -->
+            <div class="score-card">
+                <div class="score-header">
+                    <h2>Trust Score</h2>
+                    <span id="riskBadge" class="badge">Safe</span>
+                </div>
+                
+    <!-- UI Elements for Data -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <div class="score-visual">
+        <div class="speedometer-wrapper">
+            <svg viewBox="0 0 400 250" class="speedometer-svg">
+                <!-- Background Glow -->
+                <defs>
+                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="5" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                    <linearGradient id="speedoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ef4444" />
+                        <stop offset="30%" stop-color="#f97316" />
+                        <stop offset="60%" stop-color="#eab308" />
+                        <stop offset="100%" stop-color="#38bdf8" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Clean Background Track -->
+                <path class="speedo-bg-track" d="M 50 200 A 150 150 0 0 1 350 200" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="20" stroke-linecap="round" />
+                
+                <!-- Indicators / Ticks -->
+                <g class="speedo-labels">
+                    <text x="50" y="235" class="label-large">0</text>
+                    <text x="70" y="100" class="label-large">20</text>
+                    <text x="200" y="35" class="label-large">50</text>
+                    <text x="330" y="100" class="label-large">80</text>
+                    <text x="350" y="235" class="label-large">100</text>
+                </g>
+
+                <!-- Active Progress Track (Dynamic) -->
+                <path id="scoreTrack" class="speedo-fill" d="M 50 200 A 150 150 0 0 1 350 200" fill="none" stroke-width="22" stroke-linecap="round" stroke-dasharray="0 471.2" />
+                
+                <!-- Needle -->
+                <g id="speedoNeedleGroup" class="speedo-needle-group" transform="rotate(-90 200 200)">
+                    <line x1="200" y1="200" x2="200" y2="50" class="speedo-needle-line" filter="url(#glow)" />
+                    <circle cx="200" cy="200" r="10" fill="#fff" />
+                    <circle cx="200" cy="200" r="5" fill="#000" />
+                </g>
+            </svg>
+            
+            <div class="score-display">
+                <div class="score-value-group">
+                    <span id="scoreText" class="digital-value">0</span>
+                    <span class="digital-unit">%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+                <p id="analyzedUrl" class="analyzed-url" title="URL">https://example.com</p>
+            </div>
+
+            <!-- Details Card -->
+            <div class="details-card">
+                <h3>Analysis Details</h3>
+                
+                <div class="reasons-list">
+                    <!-- Positive Reasons -->
+                    <div class="reason-group">
+                        <h4 class="success-text"><i data-feather="check-circle"></i> Positive Signs</h4>
+                        <ul id="positiveList">
+                            <!-- Populated dynamic -->
+                        </ul>
+                    </div>
+
+                    <!-- Negative Reasons -->
+                    <div class="reason-group">
+                        <h4 class="danger-text"><i data-feather="alert-triangle"></i> Risk Factors</h4>
+                        <ul id="negativeList">
+                            <!-- Populated dynamic -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feedback Section -->
+                <div class="feedback-section">
+                    <p>Is this result accurate?</p>
+                    <div class="feedback-buttons">
+                        <button id="feedbackCorrect" class="feedback-btn positive">
+                            <i data-feather="thumbs-up"></i>
+                            <span>Accurate</span>
+                        </button>
+                        <button id="feedbackIncorrect" class="feedback-btn negative">
+                            <i data-feather="thumbs-down"></i>
+                            <span>Inaccurate</span>
+                        </button>
+                    </div>
+                    <p id="feedbackThanks" class="thanks-text hidden">Thank you! Our AI has learned from your feedback.</p>
+                </div>
+            </div>
+        </div> <!-- End Results Page -->
+    </div>
+
+    <!-- Initialize Icons -->
+    <script>
+      feather.replace()
+    </script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>

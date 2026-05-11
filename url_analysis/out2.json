@@ -1,0 +1,50 @@
+[
+  {
+    "url": "http://suspicious-login-page.xyz/auth",
+    "old": 25,
+    "new": 25,
+    "updated": false
+  },
+  {
+    "url": "https://google.com/test",
+    "old": 100,
+    "new": 100,
+    "updated": false
+  },
+  {
+    "url": "https://unknown-service-provider.net/home",
+    "old": 100,
+    "new": 100,
+    "updated": true
+  },
+  {
+    "url": "http://random-test-domain.xyz/login",
+    "old": 24,
+    "new": 24,
+    "updated": false
+  },
+  {
+    "url": "https://short-url.bit.ly/1234",
+    "old": 71,
+    "new": 71,
+    "updated": true
+  },
+  {
+    "url": "http://very-long-domain-name-that-is-suspicious.com/test",
+    "old": 0,
+    "new": 0,
+    "updated": true
+  },
+  {
+    "url": "https://paypal-update.example.com/verify",
+    "old": 50,
+    "new": 50,
+    "updated": false
+  },
+  {
+    "url": "https://a.b.c.d.e.com/",
+    "old": 100,
+    "new": 100,
+    "updated": true
+  }
+]
