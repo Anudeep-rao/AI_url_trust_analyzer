@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# Project Specific
+backend/model.joblib
+# Keep model.joblib if you want it in the repo, 
+# but usually large files/compiled models are handled via LFS or external storage.
+# For this small project, we'll keep it for now.
+
